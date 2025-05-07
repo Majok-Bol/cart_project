@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cart_project/features/home/ui/home.dart';
 void main(){
   runApp(MyApp());
 }
@@ -7,9 +8,7 @@ class MyApp extends StatelessWidget{
   Widget build(BuildContext context){
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(title: Text('Shopping Cart'),centerTitle: true,),
-      ),
+      home:HomePage(),
     );
   }
 }
