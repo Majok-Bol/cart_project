@@ -11,7 +11,13 @@ class HomeInitial extends HomeState {}
 class HomeLoadingState extends HomeState {}
 
 //display page after loading
-class HomeLoadedSuccessState extends HomeState {}
+class HomeLoadedSuccessState extends HomeState {
+  //display list of products
+  //if loaded successfully
+  final List<ProductDataMode>products;
+
+  HomeLoadedSuccessState({required this.products});
+}
 
 //show error if not loaded
 class HomeErrorState extends HomeState {}
