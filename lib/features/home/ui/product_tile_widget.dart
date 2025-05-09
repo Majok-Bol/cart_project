@@ -11,13 +11,26 @@ class ProductTileWidget extends StatelessWidget{
       padding: EdgeInsets.all(12),
       margin:EdgeInsets.all(12),
       child: Column(
-        children: [
-          ClipRect(
-            child: Image.network(
-              width: 400,
-                height: 400,
-                productDataModel.imageUrl),
 
+        children: [
+          // Container(
+          //   padding: EdgeInsets.only(top:1,bottom: 1),
+          //   child: ClipRect(
+          //   child: Image.network(
+          //     width: 400,
+          //       height: 400,
+          //       productDataModel.imageUrl),
+          //
+          // ),),
+          Container(
+            height: 200,
+            width: double.maxFinite,
+            padding: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                // fit: BoxFit.cover,
+                  image:NetworkImage(productDataModel.imageUrl))
+            ),
           ),
 
           Text(productDataModel.name),
