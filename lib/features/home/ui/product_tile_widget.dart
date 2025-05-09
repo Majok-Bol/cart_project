@@ -1,10 +1,12 @@
 //handle product tile
+import 'package:cart_project/features/home/bloc/home_bloc.dart';
 import 'package:cart_project/features/home/models/home_product_data_model.dart';
 import 'package:flutter/cupertino.dart';
 import'package:flutter/material.dart';
 class ProductTileWidget extends StatelessWidget{
   final ProductDataModel productDataModel;
-  const ProductTileWidget({super.key, required this.productDataModel});
+  final HomeBloc homeBloc;
+  const ProductTileWidget({super.key, required this.productDataModel, required this.homeBloc});
   @override
   Widget build(BuildContext context){
     return Container(
@@ -45,12 +47,14 @@ class ProductTileWidget extends StatelessWidget{
                 children: [
                   IconButton(
                     onPressed: () {
+                      homeBloc.add(HomeProductWishlistButtonClickedEvent(clickedProduct:productDataModel));
                       // homeBloc.add(HomeWishlistButtonNavigateEvent());
                     },
                     icon: Icon(Icons.favorite_border),
                   ),
                   IconButton(
                     onPressed: () {
+                      homeBloc.add(HomeProductCartButtonClickedEvent(clickedProduct:productDataModel));
                       // homeBloc.add(HomeCartButtonNavigateEvent());
                     },
                     icon: Icon(Icons.shopping_cart_outlined),

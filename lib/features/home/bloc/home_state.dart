@@ -27,3 +27,7 @@ class HomeNavigateToWishlistPageActionState extends HomeActionState {}
 
 //navigate to cart page
 class HomeNavigateToCartPageActionState extends HomeActionState {}
+//
+class HomeProductItemWishListActionState extends HomeActionState{}
+//
+class HomeProductItemCartActionState extends HomeActionState{}
