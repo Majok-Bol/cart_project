@@ -8,8 +8,8 @@ class ProductTileWidget extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return Container(
-      width: 300,
-      height: 400,
+      // width: 300,
+      // height: 500,
       padding: EdgeInsets.all(4),
       margin:EdgeInsets.all(4),
       decoration: BoxDecoration(
@@ -36,7 +36,29 @@ class ProductTileWidget extends StatelessWidget{
 
           Text(productDataModel.name,style: TextStyle(fontWeight: FontWeight.bold),),
           Text(productDataModel.description),
-          Text('\$${productDataModel.price.toString()}'),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('\$${productDataModel.price.toString()}'),
+              Row(
+
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      // homeBloc.add(HomeWishlistButtonNavigateEvent());
+                    },
+                    icon: Icon(Icons.favorite_border),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      // homeBloc.add(HomeCartButtonNavigateEvent());
+                    },
+                    icon: Icon(Icons.shopping_cart_outlined),
+                  ),
+                ],
+              ),
+            ],
+          ),
 
         ],
       ),
