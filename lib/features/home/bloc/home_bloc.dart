@@ -23,7 +23,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     emit(HomeLoadingState());
     await Future.delayed(Duration(seconds: 1));
     emit(HomeLoadedSuccessState(
-        products: GroceryData.groceryProducts.map((e)=>ProductDataMode(
+        products: GroceryData.groceryProducts.map((e)=>ProductDataModel(
             id: e['id'],
             name:e['name'],
             description: e['description'],

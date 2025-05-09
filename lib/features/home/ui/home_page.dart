@@ -1,4 +1,5 @@
 import 'package:cart_project/features/home/bloc/home_bloc.dart';
+import 'package:cart_project/features/home/ui/product_tile_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -42,6 +43,7 @@ class HomePageState extends State<HomePage> {
           case HomeLoadingState:
             return Scaffold(body:Center(child: CircularProgressIndicator(),),);
           case HomeLoadedSuccessState:
+            final successState=state as HomeLoadedSuccessState;
              return Scaffold(
               appBar: AppBar(
                 title: Text('Bashbytes Grocery App'),
@@ -63,6 +65,12 @@ class HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
+               body:ListView.builder(
+                 itemCount:successState.products.length,
+                   itemBuilder:(context,index){
+                   return ProductTileWidget(productDataModel: successState.products[index]);
+
+               }),
             );
 
           case HomeErrorState:
